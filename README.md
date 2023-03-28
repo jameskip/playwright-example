@@ -2,12 +2,10 @@
 
 # gaws
 
-#### Core user flow:
-[Swag Labs](https://www.saucedemo.com/)
+#### Core user flow: [Swag Labs](https://www.saucedemo.com/)
 - [x] Checkout
 
-#### CRUD `/pet`
-[Swagger Petstore](https://petstore.swagger.io/)
+#### CRUD `/pet`: [Swagger Petstore](https://petstore.swagger.io/)
 
 
 ### Install
