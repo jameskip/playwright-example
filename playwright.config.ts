@@ -22,6 +22,7 @@ module.exports = defineConfig({
     trace: "on",
     screenshot: "on",
     video: "on-first-retry",
+    testIdAttribute: "data-test",
   },
 
   projects: [
