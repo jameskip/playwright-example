@@ -15,18 +15,14 @@ const productInfo: ProductInfo = {
   name: "Sauce Labs Backpack",
 };
 
-test("checkout", async ({ page }) => {
+test("login", async ({ page }) => {
   const SauceDemo = new SauceDemoPage(page);
 
-  test.step("login", async () => {
-    await SauceDemo.goto("/");
-    await SauceDemo.login(userInfo);
-  });
+  await SauceDemo.goto("/");
+  await SauceDemo.login(userInfo);
 
-  test.step("add product to cart and checkout", async () => {
-    await SauceDemo.addProductToCart(productInfo.name);
-    await SauceDemo.checkout();
-  });
+  await SauceDemo.addProductToCart(productInfo.name);
+  await SauceDemo.checkout();
 
   await SauceDemo.matchSnapshot("checkout-success.png");
 });
