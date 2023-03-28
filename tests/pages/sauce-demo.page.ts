@@ -6,6 +6,10 @@ export interface LoginInfo {
   password: string;
 }
 
+export interface ProductInfo {
+  name: string;
+}
+
 export class SauceDemoPage {
   readonly page: Page;
   readonly confirmationText: Locator;
@@ -45,5 +49,9 @@ export class SauceDemoPage {
     await this.page.getByText("Finish").click();
 
     await expect(this.confirmationText).toBeVisible();
+  }
+
+  async matchSnapshot(path: string) {
+    expect(await this.page.screenshot()).toMatchSnapshot(path);
   }
 }
