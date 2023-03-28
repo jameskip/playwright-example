@@ -1,13 +1,11 @@
 // @ts-check
-const { test } = require("@playwright/test");
+import { test } from "@playwright/test";
 
 import {
   LoginInfo,
   ProductInfo,
   SauceDemoPage,
 } from "../pages/sauce-demo.page";
-
-const baseUrl = "https://www.saucedemo.com/";
 
 const userInfo: LoginInfo = {
   username: "standard_user",
@@ -21,7 +19,7 @@ const productInfo: ProductInfo = {
 test("login", async ({ page }) => {
   const SauceDemo = new SauceDemoPage(page);
 
-  await SauceDemo.goto(baseUrl);
+  await SauceDemo.goto("/");
   await SauceDemo.login(userInfo);
 
   await SauceDemo.addProductToCart(productInfo.name);
