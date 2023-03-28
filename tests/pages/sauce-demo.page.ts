@@ -36,17 +36,17 @@ export class SauceDemoPage {
   async addProductToCart(productName: string) {
     await this.page.getByText("Products").click();
     await this.page.getByText(productName).click();
-    await this.page.getByText("Add to cart").click();
+    await this.page.getByRole("button", { name: "Add to cart" }).click();
     await this.page.locator("#shopping_cart_container").click();
   }
 
   async checkout() {
-    await this.page.getByText("Checkout").click();
+    await this.page.getByRole("button", { name: "Checkout" }).click();
     await this.page.getByPlaceholder("First Name").fill("John");
     await this.page.getByPlaceholder("Last Name").fill("Doe");
     await this.page.getByPlaceholder("Zip/Postal Code").fill("12345");
-    await this.page.getByText("Continue").click();
-    await this.page.getByText("Finish").click();
+    await this.page.getByRole("button", { name: "Continue" }).click();
+    await this.page.getByRole("button", { name: "Finish" }).click();
 
     await expect(this.confirmationText).toBeVisible();
   }
