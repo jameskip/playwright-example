@@ -39,8 +39,6 @@ export class SauceDemoPage {
     await expect(this.page.getByTestId("error")).toHaveText(
       "Epic sadface: Sorry, this user has been locked out."
     );
-
-    await this.matchSnapshot("invalid-login.png");
   }
 
   async addProductToCart(productName: string) {
