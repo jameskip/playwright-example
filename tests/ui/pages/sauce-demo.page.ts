@@ -33,6 +33,14 @@ export class SauceDemoPage {
     await this.page.getByRole("button", { name: "Login" }).click();
   }
 
+  async invalidLogin(loginInfo: LoginInfo) {
+    await this.login(loginInfo);
+
+    await expect(this.page.getByTestId("error")).toHaveText(
+      "Epic sadface: Sorry, this user has been locked out."
+    );
+  }
+
   async addProductToCart(productName: string) {
     await this.page.getByText("Products").click();
     await this.page.getByText(productName).click();
