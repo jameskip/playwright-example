@@ -46,4 +46,8 @@ export class SauceDemoPage {
 
     await expect(this.confirmationText).toBeVisible();
   }
+
+  async matchSnapshot(path: string) {
+    expect(await this.page.screenshot()).toMatchSnapshot(path);
+  }
 }

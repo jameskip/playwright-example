@@ -18,4 +18,6 @@ test("login", async ({ page }) => {
 
   await SauceDemo.addProductToCart("Sauce Labs Backpack");
   await SauceDemo.checkout();
+
+  await SauceDemo.matchSnapshot("checkout-success");
 });
