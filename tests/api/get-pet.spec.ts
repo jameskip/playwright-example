@@ -2,9 +2,6 @@ import { test, expect } from "@playwright/test";
 
 test.use({
   baseURL: "https://petstore.swagger.io",
-  extraHTTPHeaders: {
-    Accept: "application/json",
-  },
 });
 
 const petId = 121290;
@@ -24,10 +21,7 @@ test.beforeAll(async ({ request }) => {
 
 test.afterAll(async ({ request }) => {
   await request.delete(`/v2/pet${petId}`, {
-    headers: {
-      api_key: "special-key",
-      accept: "application/json",
-    },
+    headers: { api_key: "special-key" },
   });
 });
 
