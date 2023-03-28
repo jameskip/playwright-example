@@ -27,5 +27,5 @@ test("login", async ({ page }) => {
   await SauceDemo.addProductToCart(productInfo.name);
   await SauceDemo.checkout();
 
-  await SauceDemo.matchSnapshot("checkout-success");
+  await SauceDemo.matchSnapshot("checkout-success.png");
 });
