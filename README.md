@@ -7,7 +7,7 @@
 - [x] Checkout
 
 #### CRUD `/pet`
-https://petstore.swagger.io/
+[Swagger Petstore](https://petstore.swagger.io/)
 
 
 ### Install
