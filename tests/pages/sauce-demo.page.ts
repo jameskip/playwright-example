@@ -6,6 +6,10 @@ export interface LoginInfo {
   password: string;
 }
 
+export interface ProductInfo {
+  name: string;
+}
+
 export class SauceDemoPage {
   readonly page: Page;
   readonly confirmationText: Locator;
