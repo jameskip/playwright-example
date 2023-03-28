@@ -2,6 +2,14 @@
 
 # gaws
 
+#### Core user flow:
+[Swag Labs](https://www.saucedemo.com/)
+- [x] Checkout
+
+#### CRUD `/pet`
+https://petstore.swagger.io/
+
+
 ### Install
 ```bash
 npm install
