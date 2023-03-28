@@ -7,23 +7,23 @@ test.use({
   },
 });
 
+const petId = 121212;
+
 const expectedResponse = {
-  category: { id: 121212, name: "string" },
-  id: 121212,
-  name: "doggie 121212",
+  category: { id: petId, name: "string" },
+  id: petId,
+  name: `doggie ${petId}`,
   photoUrls: ["string"],
   status: "available",
-  tags: [{ id: 121212, name: "string" }],
+  tags: [{ id: petId, name: "string" }],
 };
 
 test.beforeAll(async ({ request }) => {
-  await request.post(`/v2/pet`, {
-    data: { expectedResponse },
-  });
+  await request.post(`/v2/pet`, { data: { expectedResponse } });
 });
 
 test("GET - doggie 3", async ({ request }) => {
-  const response = await request.get("/v2/pet/121212");
+  const response = await request.get(`/v2/pet/${petId}`);
 
   expect(await response.json()).toEqual(
     expect.objectContaining(expectedResponse)
