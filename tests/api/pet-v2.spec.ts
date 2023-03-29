@@ -46,16 +46,18 @@ test(`CRUD - Pet`, ({ request }) => {
 
   // UPDATE pet status
   test.step(`PUT - doggie`, async () => {
+    const updatedResponse = { ...expectedResponse, status: "sold" };
+
     const response = await request.put(`/v2/pet`, {
       headers: {
         "Content-Type": "application/json",
         accept: "application/json",
       },
-      data: JSON.stringify({ ...expectedResponse, status: "sold" }),
+      data: JSON.stringify(updatedResponse),
     });
 
     expect(await response.json()).toEqual(
-      expect.objectContaining({ ...expectedResponse, status: "sold" })
+      expect.objectContaining(updatedResponse)
     );
   });
 });
