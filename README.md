@@ -26,3 +26,9 @@ npm test
 ```bash
 npx playwright show-report
 ```
+
+### Create snapshots
+To emulate your CI Linux box and generate snapshots
+```bash
+docker run -v $(pwd):/gaws mcr.microsoft.com/playwright:v1.32.1-focal bash -c 'cd gaws && npm run test'
+```
