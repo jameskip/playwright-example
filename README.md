@@ -6,6 +6,7 @@
 - [x] Login & checkout
 - [x] Single product & checkout
 - [x] Multiple product & checkout
+- [x] Sort inventory
 
 #### CRUD `/pet`: [Swagger Petstore](https://petstore.swagger.io/)
  - [x] Create pet
