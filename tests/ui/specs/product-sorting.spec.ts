@@ -7,7 +7,7 @@ const userInfo: LoginInfo = {
   password: "secret_sauce",
 };
 
-test("login", async ({ page }) => {
+test("sort", async ({ page }) => {
   const SauceDemo = new SauceDemoPage(page);
 
   await SauceDemo.goto("/");
