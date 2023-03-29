@@ -4,7 +4,7 @@ test.use({
   baseURL: "https://petstore.swagger.io",
 });
 
-const petId = 121290;
+const petId = 122333;
 
 const expectedResponse = {
   category: { id: 0, name: "string" },
@@ -16,11 +16,17 @@ const expectedResponse = {
 };
 
 test.beforeAll(async ({ request }) => {
-  await request.post(`/v2/pet`, { data: { expectedResponse } });
+  await request.post(`/v2/pet`, {
+    headers: {
+      "Content-Type": "application/json",
+      accept: "application/json",
+    },
+    data: JSON.stringify(expectedResponse),
+  });
 });
 
 test.afterAll(async ({ request }) => {
-  await request.delete(`/v2/pet${petId}`, {
+  await request.delete(`/v2/pet/${petId}`, {
     headers: { api_key: "special-key" },
   });
 });
