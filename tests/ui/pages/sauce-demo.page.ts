@@ -62,6 +62,27 @@ export class SauceDemoPage {
     await expect(this.confirmationText).toBeVisible();
   }
 
+  async sortInventory(sortOption: string) {
+    await this.page
+      .getByTestId("product_sort_container")
+      .selectOption(sortOption);
+
+    const elements = await this.page.$$(".inventory_item_price");
+
+    let lastPrice = 0;
+
+    for (const element of elements) {
+      const text = await element.innerText();
+      const parsedNumber = parseFloat(text.replace("$", ""));
+
+      expect(parsedNumber).toBeGreaterThanOrEqual(lastPrice);
+
+      lastPrice = parsedNumber;
+    }
+
+    await this.page.waitForLoadState("networkidle");
+  }
+
   async matchSnapshot(path: string) {
     expect(await this.page.screenshot()).toMatchSnapshot(path);
   }
