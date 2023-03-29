@@ -4,6 +4,7 @@
 
 #### Core user flow: [Swag Labs](https://www.saucedemo.com/)
 - [x] Login & checkout
+- [x] Unsuccessful login with locked out user
 - [x] Single product & checkout
 - [x] Multiple product & checkout
 - [x] Sort inventory
