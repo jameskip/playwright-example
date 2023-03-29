@@ -6,11 +6,14 @@ test.use({
   baseURL: "https://petstore.swagger.io",
 });
 
-const petId = getRandomNumber(1, 1000);
-const petData = expectedResponse(petId);
+let petId: number;
+let petData: {};
 
 // CREATE pet before all tests are run
 test.beforeAll(async ({ request }) => {
+  petId = getRandomNumber(1, 1000);
+  petData = expectedResponse(petId);
+
   await request.post(`/v2/pet`, {
     headers: {
       "Content-Type": "application/json",
