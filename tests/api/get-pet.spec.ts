@@ -19,6 +19,7 @@ const expectedResponse = {
   tags: [{ id: 0, name: "string" }],
 };
 
+// Create pet before all tests are run
 test.beforeAll(async ({ request }) => {
   await request.post(`/v2/pet`, {
     headers: {
@@ -36,6 +37,7 @@ test.afterAll(async ({ request }) => {
   });
 });
 
+// Assert created pet is returned
 test(`GET - doggie`, async ({ request }) => {
   const response = await request.get(`/v2/pet/${petId}`);
 
