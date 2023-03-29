@@ -12,7 +12,7 @@ const userInfo: LoginInfo = {
 };
 
 const productInfo: ProductInfo = {
-  name: ["Sauce Labs Backpack"],
+  name: ["Sauce Labs Backpack", "Sauce Labs Bike Light"],
 };
 
 test("login", async ({ page }) => {

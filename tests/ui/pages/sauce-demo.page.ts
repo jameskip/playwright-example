@@ -7,7 +7,7 @@ export interface LoginInfo {
 }
 
 export interface ProductInfo {
-  name: string;
+  name: string[];
 }
 
 export class SauceDemoPage {
@@ -41,10 +41,13 @@ export class SauceDemoPage {
     );
   }
 
-  async addProductToCart(productName: string) {
+  async addProductsToCart(productNames: string[]) {
     await this.page.getByText("Products").click();
-    await this.page.getByText(productName).click();
-    await this.page.getByRole("button", { name: "Add to cart" }).click();
+    for (const productName of productNames) {
+      await this.page.getByText(productName).click();
+      await this.page.getByRole("button", { name: "Add to cart" }).click();
+      await this.page.goBack();
+    }
     await this.page.locator("#shopping_cart_container").click();
   }
 
