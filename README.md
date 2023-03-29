@@ -3,13 +3,15 @@
 # gaws
 
 #### Core user flow: [Swag Labs](https://www.saucedemo.com/)
-- [x] Login & Checkout
+- [x] Login & checkout
 - [x] Single product & checkout
 - [x] Multiple product & checkout
 
 #### CRUD `/pet`: [Swagger Petstore](https://petstore.swagger.io/)
- - [x] Create & Delete pet
- - [x] Lookup pet
+ - [x] Create pet
+ - [x] Read pet
+ - [x] Update pet
+ - [x] Delete pet
 
 
 ### Install
