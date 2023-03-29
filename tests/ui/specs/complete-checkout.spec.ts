@@ -1,15 +1,7 @@
 // @ts-check
 import { test } from "@playwright/test";
-import {
-  LoginInfo,
-  ProductInfo,
-  SauceDemoPage,
-} from "../pages/sauce-demo.page";
-
-const userInfo: LoginInfo = {
-  username: "standard_user",
-  password: "secret_sauce",
-};
+import { userInfo } from "../../constants";
+import { ProductInfo, SauceDemoPage } from "../pages/sauce-demo.page";
 
 const productInfo: ProductInfo = {
   name: ["Sauce Labs Backpack"],

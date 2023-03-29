@@ -1,20 +1,13 @@
 import { test, expect } from "@playwright/test";
 import { getRandomNumber } from "../../utils/helpers";
+import { expectedResponse } from "../constants";
 
 test.use({
   baseURL: "https://petstore.swagger.io",
 });
 
 const petId = getRandomNumber(1, 1000);
-
-const expectedResponse = {
-  category: { id: 0, name: "string" },
-  id: petId,
-  name: `doggie ${petId}`,
-  photoUrls: ["string"],
-  status: "available",
-  tags: [{ id: 0, name: "string" }],
-};
+const petData = expectedResponse(petId);
 
 // CREATE pet before all tests are run
 test.beforeAll(async ({ request }) => {
@@ -23,7 +16,7 @@ test.beforeAll(async ({ request }) => {
       "Content-Type": "application/json",
       accept: "application/json",
     },
-    data: JSON.stringify(expectedResponse),
+    data: JSON.stringify(petData),
   });
 });
 
@@ -39,14 +32,12 @@ test(`CRUD - Pet`, ({ request }) => {
   test.step(`GET - doggie`, async () => {
     const response = await request.get(`/v2/pet/${petId}`);
 
-    expect(await response.json()).toEqual(
-      expect.objectContaining(expectedResponse)
-    );
+    expect(await response.json()).toEqual(expect.objectContaining(petData));
   });
 
   // UPDATE pet status
   test.step(`PUT - doggie`, async () => {
-    const updatedResponse = { ...expectedResponse, status: "sold" };
+    const updatedResponse = { ...petData, status: "sold" };
 
     const response = await request.put(`/v2/pet`, {
       headers: {

@@ -1,11 +1,7 @@
 // @ts-check
 import { test } from "@playwright/test";
-import { LoginInfo, SauceDemoPage } from "../pages/sauce-demo.page";
-
-const userInfo: LoginInfo = {
-  username: "standard_user",
-  password: "secret_sauce",
-};
+import { SauceDemoPage } from "../pages/sauce-demo.page";
+import { userInfo } from "../../constants";
 
 test("sort", async ({ page }) => {
   const SauceDemo = new SauceDemoPage(page);
