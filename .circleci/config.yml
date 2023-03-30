@@ -3,6 +3,7 @@ jobs:
   test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.32.1-focal
+    resource_class: medium
     steps:
       - checkout
       - run: npm ci
