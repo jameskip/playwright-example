@@ -15,3 +15,8 @@ export const userInfo: LoginInfo = {
   username: "standard_user",
   password: "secret_sauce",
 };
+
+export const lockedUserInfo: LoginInfo = {
+  username: "locked_out_user",
+  password: "secret_sauce",
+};
