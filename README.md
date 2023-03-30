@@ -1,4 +1,5 @@
 [![Playwright Tests](https://github.com/jameskip/gaws/actions/workflows/playwright.yml/badge.svg)](https://github.com/jameskip/gaws/actions/workflows/playwright.yml)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/jameskip/gaws/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/jameskip/gaws/tree/main)
 
 # gaws
 
