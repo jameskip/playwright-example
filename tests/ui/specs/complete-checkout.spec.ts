@@ -1,21 +1,15 @@
 // @ts-check
-import { test } from "@playwright/test";
-import { userInfo } from "../../constants";
-import { ProductInfo, SauceDemoPage } from "../pages/sauce-demo.page";
+import { test } from "../fixtures";
+import { ProductInfo } from "../pages/sauce-demo.page";
 
 const productInfo: ProductInfo = {
   name: ["Sauce Labs Backpack"],
 };
 
 // Login and checkout with a single product
-test("login", async ({ page }) => {
-  const SauceDemo = new SauceDemoPage(page);
+test("login", async ({ saucePage }) => {
+  await saucePage.addProductsToCart(productInfo.name);
+  await saucePage.checkout();
 
-  await SauceDemo.goto("/");
-  await SauceDemo.login(userInfo);
-
-  await SauceDemo.addProductsToCart(productInfo.name);
-  await SauceDemo.checkout();
-
-  await SauceDemo.matchSnapshot("checkout-success.png");
+  await saucePage.matchSnapshot("checkout-success.png");
 });

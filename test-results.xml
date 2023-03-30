@@ -1,0 +1,94 @@
+<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="0" time="3.2187790000140666">
+<testsuite name="api/pet-v2.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.04" errors="0">
+<testcase name="CRUD - Pet" classname="api/pet-v2.spec.ts" time="0.04">
+<failure message="pet-v2.spec.ts:33:5 CRUD - Pet" type="FAILURE">
+<![CDATA[  [chromium] › api/pet-v2.spec.ts:33:5 › CRUD - Pet ────────────────────────────────────────────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    Expected: ObjectContaining {"category": {"id": 0, "name": "string"}, "id": 983, "name": "doggie 983", "photoUrls": ["string"], "status": "available", "tags": [{"id": 0, "name": "string"}]}
+    Received: {"category": {"id": 0, "name": "string"}, "id": 983, "name": "doggie 983", "photoUrls": ["string"], "status": "sold", "tags": [{"id": 0, "name": "string"}]}
+
+      36 |     const response = await request.get(`/v2/pet/${petId}`);
+      37 |
+    > 38 |     expect(await response.json()).toEqual(expect.objectContaining(petData));
+         |                                   ^
+      39 |   });
+      40 |
+      41 |   // UPDATE pet status
+
+        at /Users/jk/Documents/Git/gaws/tests/api/pet-v2.spec.ts:38:35
+
+    "afterAll" hook timeout of 20000ms exceeded.
+
+      25 |
+      26 | // DELETE pet after all tests are done
+    > 27 | test.afterAll(async ({ request }) => {
+         |      ^
+      28 |   await request.delete(`/v2/pet/${petId}`, {
+      29 |     headers: { api_key: "special-key" },
+      30 |   });
+
+        at /Users/jk/Documents/Git/gaws/tests/api/pet-v2.spec.ts:27:6
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/api-pet-v2-CRUD---Pet-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/api-pet-v2-CRUD---Pet-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/api-pet-v2-CRUD---Pet-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui/specs/complete-checkout.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.953" errors="0">
+<testcase name="login" classname="ui/specs/complete-checkout.spec.ts" time="1.953">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/ui-specs-complete-checkout-login-chromium/trace.zip]]
+
+[[ATTACHMENT|../test-results/ui-specs-complete-checkout-login-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui/specs/login-locked-out.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.326" errors="0">
+<testcase name="login - locked out" classname="ui/specs/login-locked-out.spec.ts" time="1.326">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/ui-specs-login-locked-out-login---locked-out-chromium/trace.zip]]
+
+[[ATTACHMENT|../test-results/ui-specs-login-locked-out-login---locked-out-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui/specs/multiple-product-checkout.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.987" errors="0">
+<testcase name="login" classname="ui/specs/multiple-product-checkout.spec.ts" time="1.987">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/ui-specs-multiple-product-checkout-login-chromium/trace.zip]]
+
+[[ATTACHMENT|../test-results/ui-specs-multiple-product-checkout-login-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui/specs/product-sorting.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.826" errors="0">
+<testcase name="sort" classname="ui/specs/product-sorting.spec.ts" time="1.826">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/ui-specs-product-sorting-sort-chromium/trace.zip]]
+
+[[ATTACHMENT|../test-results/ui-specs-product-sorting-sort-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
