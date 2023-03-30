@@ -7,7 +7,7 @@ const productInfo: ProductInfo = {
 };
 
 // Login and checkout with a single product
-test("login", async ({ saucePage }) => {
+test("remove product", async ({ saucePage }) => {
   await saucePage.addProductsToCart(productInfo.name);
   await saucePage.checkout();
 

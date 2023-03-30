@@ -81,6 +81,11 @@ export class SauceDemoPage {
     await this.page.waitForLoadState("networkidle");
   }
 
+  async removeProductFromCart() {
+    await this.page.getByRole("button", { name: "Remove" }).click();
+    await this.matchSnapshot("remove-product.png");
+  }
+
   async matchSnapshot(path: string) {
     expect(await this.page.screenshot()).toMatchSnapshot(path);
   }

@@ -1,13 +1,13 @@
-<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="0" time="3.2187790000140666">
-<testsuite name="api/pet-v2.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.04" errors="0">
-<testcase name="CRUD - Pet" classname="api/pet-v2.spec.ts" time="0.04">
+<testsuites id="" name="" tests="6" failures="2" skipped="0" errors="0" time="6.5252329999953504">
+<testsuite name="api/pet-v2.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.028" errors="0">
+<testcase name="CRUD - Pet" classname="api/pet-v2.spec.ts" time="0.028">
 <failure message="pet-v2.spec.ts:33:5 CRUD - Pet" type="FAILURE">
 <![CDATA[  [chromium] › api/pet-v2.spec.ts:33:5 › CRUD - Pet ────────────────────────────────────────────────
 
     Error: expect(received).toEqual(expected) // deep equality
 
-    Expected: ObjectContaining {"category": {"id": 0, "name": "string"}, "id": 983, "name": "doggie 983", "photoUrls": ["string"], "status": "available", "tags": [{"id": 0, "name": "string"}]}
-    Received: {"category": {"id": 0, "name": "string"}, "id": 983, "name": "doggie 983", "photoUrls": ["string"], "status": "sold", "tags": [{"id": 0, "name": "string"}]}
+    Expected: ObjectContaining {"category": {"id": 0, "name": "string"}, "id": 933, "name": "doggie 933", "photoUrls": ["string"], "status": "available", "tags": [{"id": 0, "name": "string"}]}
+    Received: {"code": 1, "message": "Pet not found", "type": "error"}
 
       36 |     const response = await request.get(`/v2/pet/${petId}`);
       37 |
@@ -17,19 +17,10 @@
       40 |
       41 |   // UPDATE pet status
 
-        at /Users/jk/Documents/Git/gaws/tests/api/pet-v2.spec.ts:38:35
+        at /gaws/tests/api/pet-v2.spec.ts:38:35
 
-    "afterAll" hook timeout of 20000ms exceeded.
-
-      25 |
-      26 | // DELETE pet after all tests are done
-    > 27 | test.afterAll(async ({ request }) => {
-         |      ^
-      28 |   await request.delete(`/v2/pet/${petId}`, {
-      29 |     headers: { api_key: "special-key" },
-      30 |   });
-
-        at /Users/jk/Documents/Git/gaws/tests/api/pet-v2.spec.ts:27:6
+    Test finished within timeout of 20000ms, but tearing down "request" ran out of time.
+    Please allow more time for the test, since teardown is attributed towards the test timeout budget.
 
     attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
     test-results/api-pet-v2-CRUD---Pet-chromium/trace.zip
@@ -47,19 +38,19 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="ui/specs/complete-checkout.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.953" errors="0">
-<testcase name="login" classname="ui/specs/complete-checkout.spec.ts" time="1.953">
+<testsuite name="ui/specs/complete-checkout.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.906" errors="0">
+<testcase name="remove product" classname="ui/specs/complete-checkout.spec.ts" time="1.906">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/ui-specs-complete-checkout-login-chromium/trace.zip]]
+[[ATTACHMENT|../test-results/ui-specs-complete-checkout-remove-product-chromium/trace.zip]]
 
-[[ATTACHMENT|../test-results/ui-specs-complete-checkout-login-chromium/test-finished-1.png]]
+[[ATTACHMENT|../test-results/ui-specs-complete-checkout-remove-product-chromium/test-finished-1.png]]
 ]]>
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="ui/specs/login-locked-out.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.326" errors="0">
-<testcase name="login - locked out" classname="ui/specs/login-locked-out.spec.ts" time="1.326">
+<testsuite name="ui/specs/login-locked-out.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.309" errors="0">
+<testcase name="login - locked out" classname="ui/specs/login-locked-out.spec.ts" time="1.309">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/ui-specs-login-locked-out-login---locked-out-chromium/trace.zip]]
@@ -69,8 +60,8 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="ui/specs/multiple-product-checkout.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.987" errors="0">
-<testcase name="login" classname="ui/specs/multiple-product-checkout.spec.ts" time="1.987">
+<testsuite name="ui/specs/multiple-product-checkout.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.224" errors="0">
+<testcase name="login" classname="ui/specs/multiple-product-checkout.spec.ts" time="2.224">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/ui-specs-multiple-product-checkout-login-chromium/trace.zip]]
@@ -80,13 +71,56 @@
 </system-out>
 </testcase>
 </testsuite>
-<testsuite name="ui/specs/product-sorting.spec.ts" timestamp="2023-03-30T07:34:02.041Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.826" errors="0">
-<testcase name="sort" classname="ui/specs/product-sorting.spec.ts" time="1.826">
+<testsuite name="ui/specs/product-sorting.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.88" errors="0">
+<testcase name="sort" classname="ui/specs/product-sorting.spec.ts" time="1.88">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|../test-results/ui-specs-product-sorting-sort-chromium/trace.zip]]
 
 [[ATTACHMENT|../test-results/ui-specs-product-sorting-sort-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui/specs/remove-product-cart.spec.ts" timestamp="2023-03-30T14:03:58.366Z" hostname="chromium" tests="1" failures="1" skipped="0" time="1.211" errors="0">
+<testcase name="remove product" classname="ui/specs/remove-product-cart.spec.ts" time="1.211">
+<failure message="remove-product-cart.spec.ts:10:5 remove product" type="FAILURE">
+<![CDATA[  [chromium] › ui/specs/remove-product-cart.spec.ts:10:5 › remove product ──────────────────────────
+
+    Error: A snapshot doesn't exist at /gaws/tests/ui/specs/remove-product-cart.spec.ts-snapshots/remove-product-chromium-linux.png, writing actual.
+
+       at ui/pages/sauce-demo.page.ts:90
+
+      88 |
+      89 |   async matchSnapshot(path: string) {
+    > 90 |     expect(await this.page.screenshot()).toMatchSnapshot(path);
+         |                                          ^
+      91 |   }
+      92 | }
+      93 |
+
+        at SauceDemoPage.matchSnapshot (/gaws/tests/ui/pages/sauce-demo.page.ts:90:42)
+        at SauceDemoPage.removeProductFromCart (/gaws/tests/ui/pages/sauce-demo.page.ts:86:5)
+        at /gaws/tests/ui/specs/remove-product-cart.spec.ts:12:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ui-specs-remove-product-cart-remove-product-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ui-specs-remove-product-cart-remove-product-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/ui-specs-remove-product-cart-remove-product-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/ui-specs-remove-product-cart-remove-product-chromium/trace.zip]]
+
+[[ATTACHMENT|../test-results/ui-specs-remove-product-cart-remove-product-chromium/test-failed-1.png]]
 ]]>
 </system-out>
 </testcase>
