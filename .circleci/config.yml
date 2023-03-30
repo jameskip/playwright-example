@@ -8,7 +8,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - store_test_results:
-          path: test-results.xml
+          path: test-results
 workflows:
   build_and_test:
     jobs:
