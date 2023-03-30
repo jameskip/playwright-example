@@ -8,7 +8,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - store_test_results:
-          path: test-results
+          path: playwright-report
 workflows:
   build_and_test:
     jobs:
