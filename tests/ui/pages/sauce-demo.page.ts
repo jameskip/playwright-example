@@ -70,7 +70,6 @@ export class SauceDemoPage {
     const elements = await this.page.$$(".inventory_item_price");
 
     let lastPrice = 0;
-
     for (const element of elements) {
       const text = await element.innerText();
       const parsedNumber = parseFloat(text.replace("$", ""));

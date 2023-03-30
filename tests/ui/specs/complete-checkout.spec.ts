@@ -7,6 +7,7 @@ const productInfo: ProductInfo = {
   name: ["Sauce Labs Backpack"],
 };
 
+// Login and checkout with a single product
 test("login", async ({ page }) => {
   const SauceDemo = new SauceDemoPage(page);
 
