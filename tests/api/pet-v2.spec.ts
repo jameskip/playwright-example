@@ -50,8 +50,6 @@ test(`CRUD - Pet`, ({ request }) => {
       data: JSON.stringify(updatedResponse),
     });
 
-    test.fail();
-
     expect(await response.json()).toEqual(
       expect.objectContaining(updatedResponse)
     );
