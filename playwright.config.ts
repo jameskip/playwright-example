@@ -13,6 +13,7 @@ import { defineConfig, devices } from "@playwright/test";
 module.exports = defineConfig({
   testDir: "./tests",
   fullyParallel: true,
+  timeout: 20000,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
