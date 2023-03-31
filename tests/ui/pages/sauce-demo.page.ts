@@ -20,8 +20,6 @@ export class SauceDemoPage {
     });
   }
 
-  // here's a comment
-
   async goto(baseUrl: string) {
     await this.page.goto(baseUrl);
     await expect(this.page).toHaveTitle(/Swag Labs/);
