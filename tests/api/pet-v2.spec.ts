@@ -30,16 +30,16 @@ test.afterAll(async ({ request }) => {
   });
 });
 
-test(`CRUD - Pet`, ({ request }) => {
+test(`CRUD - Pet`, async ({ request }) => {
   // READ pet by id
-  test.step(`GET - doggie`, async () => {
+  await test.step(`GET - doggie`, async () => {
     const response = await request.get(`/v2/pet/${petId}`);
 
     expect(await response.json()).toEqual(expect.objectContaining(petData));
   });
 
   // UPDATE pet status
-  test.step(`PUT - doggie`, async () => {
+  await test.step(`PUT - doggie`, async () => {
     const updatedResponse = { ...petData, status: "sold" };
 
     const response = await request.put(`/v2/pet`, {
