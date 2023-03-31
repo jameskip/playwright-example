@@ -77,8 +77,6 @@ export class SauceDemoPage {
 
       lastPrice = parsedNumber;
     }
-
-    await this.page.waitForLoadState("networkidle");
   }
 
   async removeProductFromCart() {
